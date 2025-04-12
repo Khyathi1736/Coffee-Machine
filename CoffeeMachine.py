@@ -37,11 +37,11 @@ def coins(user_input):
     global MENU,resources,Money    #to use global variables in function we need to first declare them like this.
     #if any ingredient is not available to make the input item
     if MENU[user_input]["ingredients"]["water"]>resources["water"]:
-        print("Sorry,There is not enough water.")
+        print("Sorry,There is not enough water to make that.")
     elif user_input!="espresso" and MENU[user_input]["ingredients"]["milk"]>resources["milk"] :
-        print("Sorry,There is not enough milk.")
+        print("Sorry,There is not enough milk to make that.")
     elif MENU[user_input]["ingredients"]["coffee"]>resources["coffee"]:
-        print("Sorry,There is not enough coffee.")
+        print("Sorry,There is not enough coffee to make that.")
     else:
         print("Please input coins:")
         quarters=int(input("How many quarters?:"))
@@ -61,7 +61,7 @@ def coins(user_input):
                 resources["milk"]=resources["milk"]-MENU[user_input]["ingredients"]["milk"]
             resources["coffee"]=resources["coffee"]-MENU[user_input]["ingredients"]["coffee"]
             print(f"Here is your ${change} in change.")
-            print(f"Here is your {user_input},Enjoy pandgoww!")
+            print(f"Here is your {user_input},Enjoy!")
 
 
 
@@ -73,15 +73,18 @@ while 1:
         print(f"Coffee: {resources["coffee"]}g")
         print(f"Money: ${Money}")
     elif user_input=="latte":
+        print("It costs 2.5$")
         coins(user_input)
     elif user_input=="espresso":
+        print("It costs 1.5$")
         coins(user_input)
     elif user_input=="cappuccino":
         coins(user_input)
+        print("It costs 3$")
     elif user_input=="off":
         exit()
     else:
-        print("Enter correct input boshidikeee.......")
+        print("Please Enter Valid input!!")
 
 
 
